@@ -1,0 +1,84 @@
+<listLanguages>
+    <language>
+        <name>Default</name>
+        <extension>Default</extension>
+        <comment>
+            <begin>  </begin>
+            <middle> </middle>
+            <end>  </end>
+        </comment>
+    </language>
+    <language>
+        <name>Makefile</name>
+        <extension>Makefile</extension>
+        <comment>
+            <begin>##</begin>
+            <middle>#</middle>
+            <end>##</end>
+        </comment>
+    </language>
+    <language>
+        <name>Shell</name>
+        <extension>.sh</extension>
+        <comment>
+            <begin>;;</begin>
+            <middle>;</middle>
+            <end>;;</end>
+        </comment>
+    </language>
+    <language>
+        <name>C</name>
+        <extension>.c</extension>
+        <comment>
+            <begin>/*</begin>
+            <middle>*</middle>
+            <end>*/</end>
+        </comment>
+    </language>
+    <language>
+        <name>C++</name>
+        <extension>.cpp</extension>
+        <comment>
+            <begin>//</begin>
+            <middle>/</middle>
+            <end>//</end>
+        </comment>
+    </language>
+    <language>
+        <name>h</name>
+        <extension>.h</extension>
+        <comment>
+            <begin>/*</begin>
+            <middle>*</middle>
+            <end>*/</end>
+        </comment>
+    </language>
+    <language>
+        <name>hh</name>
+        <extension>.hh</extension>
+        <comment>
+            <begin>//</begin>
+            <middle>/</middle>
+            <end>//</end>
+        </comment>
+    </language>
+    <language>
+        <name>hpp</name>
+        <extension>.hpp</extension>
+        <comment>
+            <begin>/*</begin>
+            <middle>*</middle>
+            <end>*/</end>
+        </comment>
+    </language>
+    <language>
+        <name>ocaml</name>
+        <extension>.ml</extension>
+        <comment>
+            <begin>(*</begin>
+            <middle> </middle>
+            <end>*)</end>
+        </comment>
+    </language>
+</listLanguages>
+

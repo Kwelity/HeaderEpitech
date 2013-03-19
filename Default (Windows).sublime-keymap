@@ -1,0 +1,4 @@
+[
+    { "keys": ["ctrl+alt+h"], "command": "header_epitech"},
+    { "keys": ["ctrl+alt+,"], "command": "header_epitech_show_command_line"}
+]

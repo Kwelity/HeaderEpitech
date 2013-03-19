@@ -1,0 +1,11 @@
+{
+	"first_name": "Enter your first name in the user settings",
+	"name": "Enter your name in the user settings",
+	"login": "Enter your login in the user settings",
+
+	"ignore_files" :
+	[
+	"header_epitech.py",
+	"mapHeader.txt"
+	]
+}

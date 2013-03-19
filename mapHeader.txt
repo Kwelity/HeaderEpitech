@@ -1,0 +1,9 @@
+{$comment_begin}
+{$comment_middle}{$comment_middle} {$file_name} for {$description} in {$file_path}
+{$comment_middle}{$comment_middle}
+{$comment_middle}{$comment_middle} Made by {$name} {$first_name}
+{$comment_middle}{$comment_middle} Login   <{$login}@epitech.eu>
+{$comment_middle}{$comment_middle}
+{$comment_middle}{$comment_middle} Started on  {$create_date} {$first_name} {$name}
+{$comment_middle}{$comment_middle} Last update {$save_date} {$first_name} {$name}
+{$comment_end}
