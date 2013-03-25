@@ -96,7 +96,13 @@ class Header(object):
         self.description = str(comment)
         self.file_path, self.file_extension = os.path.splitext(str(file_info))
         self.file_name = os.path.basename(str(file_info))
-        self.file_extension = "Makefile" if not self.file_extension and self.file_name == "Makefile" else "Default"
+        if not self.file_extension:
+            if self.file_name == "Makefile":
+                self.file_extension = "Makefile"
+            else:
+                self.file_extension = "Default"
+        # self.file_extension = "Makefile" if not self.file_extension and self.file_name == "Makefile" else "Default" if not self.extension
+        # print(self.file_extension)
         self.first_name = str(settings.get("first_name"))
         self.name = str(settings.get("name"))
         self.login = str(settings.get("login"))
