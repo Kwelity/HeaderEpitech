@@ -45,6 +45,15 @@
         </comment>
     </language>
     <language>
+        <name>Pascal</name>
+        <extension>.pas</extension>
+        <comment>
+            <begin>//</begin>
+            <middle>/</middle>
+            <end>//</end>
+        </comment>
+    </language>
+    <language>
         <name>h</name>
         <extension>.h</extension>
         <comment>
