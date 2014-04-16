@@ -47,9 +47,9 @@ class TransformXmlToLanguages(object):
             if languages.nodeType == languages.ELEMENT_NODE:
                 l = Language()
                 try:
-                    l.name = self.getText(languages.getElementsByTagName("name")[0])
+                    l.name      = self.getText(languages.getElementsByTagName("name")[0])
                     l.extension = self.getText(languages.getElementsByTagName("extension")[0])
-                    l.comment = self.getComment(languages.getElementsByTagName("comment")[0])
+                    l.comment   = self.getComment(languages.getElementsByTagName("comment")[0])
                 except:
                     pass
                 self.__languagesList__.append(l)
