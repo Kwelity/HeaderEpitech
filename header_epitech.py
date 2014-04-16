@@ -5,29 +5,25 @@ import datetime
 
 
 class Comment:
-    """docstring for Comment"""
-    begin = None
+    begin  = None
     middle = None
-    end = None
+    end    = None
 
     def __init__(self):
         pass
 
 
 class Language:
-    """docstring for Language"""
-    name = None
+    name      = None
     extension = None
-    comment = Comment()
+    comment   = Comment()
 
     def __init__(self):
         pass
 
 
 class TransformXmlToLanguages(object):
-    """docstring for TransformXmlToLanguages"""
-
-    __currentNode__ = None
+    __currentNode__   = None
     __languagesList__ = None
 
     def __init__(self):
@@ -74,22 +70,20 @@ class TransformXmlToLanguages(object):
 
 
 class Header(object):
-    """docstring for Header"""
 
     __language__ = None
-    __header__ = None
-
+    __header__   = None
 
     mapHeader = sublime.packages_path()+'/HeaderEpitech/mapHeader.txt'
 
     description = None
-    file_name = None
-    file_path = None
-    name = None
-    fist_name = None
-    login = None
+    file_name   = None
+    file_path   = None
+    name        = None
+    fist_name   = None
+    login       = None
     create_date = None
-    save_date = None
+    save_date   = None
 
     def __init__(self, edit, comment, file_info):
         settings = sublime.load_settings('header_epitech.sublime-settings')
@@ -101,22 +95,24 @@ class Header(object):
                 self.file_extension = "Makefile"
             else:
                 self.file_extension = "Default"
-        # self.file_extension = "Makefile" if not self.file_extension and self.file_name == "Makefile" else "Default" if not self.extension
-        # print(self.file_extension)
-        self.first_name = str(settings.get("first_name"))
-        self.name = str(settings.get("name"))
-        self.login = str(settings.get("login"))
-        self.create_date = datetime.datetime.now().ctime()
-        self.save_date = self.create_date
+
+        self.first_name   = str(settings.get("first_name"))
+        self.name         = str(settings.get("name"))
+        self.login        = str(settings.get("login"))
+        self.create_date  = datetime.datetime.now().ctime()
+        self.save_date    = self.create_date
         self.__language__ = self.getFileLanguage(edit)
         self.getMap()
         self.generateHeader()
 
     def getFileLanguage(self, edit):
-        x = TransformXmlToLanguages()
+        ret = None
+        x   = TransformXmlToLanguages()
         for language in x.getLanguages():
             if language.extension == self.file_extension:
                 ret = language
+        if ret == None:
+            ret = x.getLanguages()[0]
         return ret
 
     def getMap(self):
@@ -124,7 +120,7 @@ class Header(object):
             self.__header__ = open(self.mapHeader).read()
         except FileNotFoundError:
             # Have to do it again, dunno why.
-            self.mapHeader = sublime.packages_path()+'/HeaderEpitech/mapHeader.txt'
+            self.mapHeader  = sublime.packages_path()+'/HeaderEpitech/mapHeader.txt'
             self.__header__ = open(self.mapHeader).read()
 
 
@@ -141,15 +137,15 @@ class Header(object):
 
 class HeaderEpitechModifiedCommand(sublime_plugin.TextCommand):
     def run(self, edit):
-        settings = sublime.load_settings("header_epitech.sublime-settings")
-        first_name = settings.get("first_name")
-        name = settings.get("name")
-        modified_date_region = self.view.find('Last update', 0)
-        if modified_date_region:
-            line = self.view.line(modified_date_region)
-            now = datetime.datetime.now().ctime()
-            string_line = self.view.substr(line)
-            before_pos = string_line.find('Last update')
+        settings      = sublime.load_settings("header_epitech.sublime-settings")
+        first_name    = settings.get("first_name")
+        name          = settings.get("name")
+        modified_date = self.view.find('Last update', 0)
+        if modified_date:
+            line          = self.view.line(modified_date)
+            now           = datetime.datetime.now().ctime()
+            string_line   = self.view.substr(line)
+            before_pos    = string_line.find('Last update')
             before_string = ''
             if before_pos >= 0:
                 before_string = string_line[0:before_pos]
@@ -161,7 +157,7 @@ class HeaderEpitechModifiedCommand(sublime_plugin.TextCommand):
 class HeaderEpitechShowCommandLine(sublime_plugin.WindowCommand):
 
     def run(self):
-        view = sublime.Window.active_view(sublime.active_window())
+        view      = sublime.Window.active_view(sublime.active_window())
         file_name = os.path.splitext(os.path.basename(view.file_name()))[0]
         self.window.show_input_panel("Header description:", file_name if file_name else "", self.on_done, None, None)
 
@@ -177,7 +173,7 @@ class HeaderEpitechCommand(sublime_plugin.TextCommand):
 
     def run(self, edit, comment):
         file_path = self.view.file_name()
-        header = Header(edit, comment, file_path)
+        header    = Header(edit, comment, file_path)
         self.displayHeader(edit, header)
 
     def displayHeader(self, edit, header):
@@ -187,7 +183,7 @@ class HeaderEpitechCommand(sublime_plugin.TextCommand):
 class HeaderEpitechEvent(sublime_plugin.EventListener):
 
     def on_pre_save(self, view):
-        settings = sublime.load_settings("header_epitech.sublime-settings")
+        settings     = sublime.load_settings("header_epitech.sublime-settings")
         ignore_files = settings.get('ignore_files')
         current_file = os.path.basename(view.file_name())
         for f in ignore_files:
