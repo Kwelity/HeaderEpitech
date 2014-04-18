@@ -41,7 +41,7 @@ class TransformXmlToLanguages(object):
         return self.__currentNode__
 
     def getLanguages(self):
-        if not self.__languagesList__ is None:
+        if self.__languagesList__ != None:
             return self.__languagesList__
         self.__languagesList__ = []
         for languages in self.getRootElement().getElementsByTagName("language"):
