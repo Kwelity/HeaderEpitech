@@ -104,7 +104,10 @@ class Header(object):
         ret = None
         x   = TransformXmlToLanguages()
         for language in x.getLanguages():
-            if language.extension == self.file_extension:
+            # test = language.extension.split('|')
+            # print(test)
+            # if language.extension == self.file_extension:
+            if any(self.file_extension in s for s in language.extension.split('|')):
                 ret = language
         if ret is None:
             ret = x.getLanguages()[0]

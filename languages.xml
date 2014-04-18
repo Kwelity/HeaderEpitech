@@ -9,16 +9,8 @@
         </comment>
     </language>
     <language>
-        <name>Makefile</name>
-        <extension>Makefile</extension>
-        <comment>
-            <begin>##</begin>
-            <middle>#</middle>
-            <end>##</end>
-        </comment>
-    </language>
-        <name>Python</name>
-        <extension>.py</extension>
+        <name>Makefile|Python</name>
+        <extension>Makefile|.py</extension>
         <comment>
             <begin>##</begin>
             <middle>#</middle>
@@ -35,17 +27,8 @@
         </comment>
     </language>
     <language>
-        <name>C</name>
-        <extension>.c</extension>
-        <comment>
-            <begin>/*</begin>
-            <middle>*</middle>
-            <end>*/</end>
-        </comment>
-    </language>
-    <language>
-        <name>C++</name>
-        <extension>.cpp</extension>
+        <name>Pascal|h</name>
+        <extension>.pas|.h</extension>
         <comment>
             <begin>//</begin>
             <middle>/</middle>
@@ -53,35 +36,8 @@
         </comment>
     </language>
     <language>
-        <name>Pascal</name>
-        <extension>.pas</extension>
-        <comment>
-            <begin>//</begin>
-            <middle>/</middle>
-            <end>//</end>
-        </comment>
-    </language>
-    <language>
-        <name>h</name>
-        <extension>.h</extension>
-        <comment>
-            <begin>/*</begin>
-            <middle>*</middle>
-            <end>*/</end>
-        </comment>
-    </language>
-    <language>
-        <name>hh</name>
-        <extension>.hh</extension>
-        <comment>
-            <begin>//</begin>
-            <middle>/</middle>
-            <end>//</end>
-        </comment>
-    </language>
-    <language>
-        <name>hpp</name>
-        <extension>.hpp</extension>
+        <name>c|c#|c++|hpp</name>
+        <extension>.c|.cs|.cpp|.cc|.hh|.hpp</extension>
         <comment>
             <begin>/*</begin>
             <middle>*</middle>
