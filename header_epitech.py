@@ -10,17 +10,11 @@ class Comment:
     middle = None
     end    = None
 
-    def __init__(self):
-        pass
-
 
 class Language:
     name      = None
     extension = None
     comment   = Comment()
-
-    def __init__(self):
-        pass
 
 
 class TransformXmlToLanguages(object):
