@@ -41,7 +41,7 @@ class TransformXmlToLanguages(object):
         return self.__currentNode__
 
     def getLanguages(self):
-        if self.__languagesList__ != None:
+        if self.__languagesList__ is not None:
             return self.__languagesList__
         self.__languagesList__ = []
         for languages in self.getRootElement().getElementsByTagName("language"):
@@ -125,7 +125,7 @@ class Header(object):
             self.__header__ = open(self.mapHeader).read()
 
     def generateHeader(self):
-        if (self.__language__ is None):
+        if (self.__language__ is not None):
             for attr in self.__dict__:
                 strToReplace = '{$' + attr + '}'
                 if (isinstance(self.__dict__.get(attr), str)):
