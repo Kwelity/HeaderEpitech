@@ -17,6 +17,14 @@
             <end>##</end>
         </comment>
     </language>
+        <name>Python</name>
+        <extension>.py</extension>
+        <comment>
+            <begin>##</begin>
+            <middle>#</middle>
+            <end>##</end>
+        </comment>
+    </language>
     <language>
         <name>Shell</name>
         <extension>.sh</extension>
