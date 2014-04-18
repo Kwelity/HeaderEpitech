@@ -1,4 +1,5 @@
-import sublime, sublime_plugin
+import sublime
+import sublime_plugin
 import os
 import re
 import datetime
@@ -35,12 +36,12 @@ class TransformXmlToLanguages(object):
         self.doc = parse(sublime.packages_path()+'/HeaderEpitech/languages.xml')
 
     def getRootElement(self):
-        if self.__currentNode__ == None:
+        if self.__currentNode__ is None:
             self.__currentNode__ = self.doc.documentElement
         return self.__currentNode__
 
     def getLanguages(self):
-        if self.__languagesList__ != None:
+        if not self.__languagesList__ is None:
             return self.__languagesList__
         self.__languagesList__ = []
         for languages in self.getRootElement().getElementsByTagName("language"):
@@ -58,9 +59,9 @@ class TransformXmlToLanguages(object):
     def getComment(self, node):
         comment = Comment()
         try:
-            comment.begin = self.getText(node.getElementsByTagName("begin")[0])
+            comment.begin  = self.getText(node.getElementsByTagName("begin")[0])
             comment.middle = self.getText(node.getElementsByTagName("middle")[0])
-            comment.end = self.getText(node.getElementsByTagName("end")[0])
+            comment.end    = self.getText(node.getElementsByTagName("end")[0])
         except:
             print('Un des TAGS suivant est manquants : begin, middle, end')
         return comment
@@ -111,7 +112,7 @@ class Header(object):
         for language in x.getLanguages():
             if language.extension == self.file_extension:
                 ret = language
-        if ret == None:
+        if ret is None:
             ret = x.getLanguages()[0]
         return ret
 
@@ -123,9 +124,8 @@ class Header(object):
             self.mapHeader  = sublime.packages_path()+'/HeaderEpitech/mapHeader.txt'
             self.__header__ = open(self.mapHeader).read()
 
-
     def generateHeader(self):
-        if (self.__language__ != None):
+        if (self.__language__ is None):
             for attr in self.__dict__:
                 strToReplace = '{$' + attr + '}'
                 if (isinstance(self.__dict__.get(attr), str)):
