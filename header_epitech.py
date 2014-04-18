@@ -149,9 +149,7 @@ class HeaderEpitechModifiedCommand(sublime_plugin.TextCommand):
             before_string = ''
             if before_pos >= 0:
                 before_string = string_line[0:before_pos]
-            self.view.replace(edit,
-                              line,
-                              before_string + 'Last update ' + now + " " + first_name + " " + name)
+            self.view.replace(edit, line, before_string + 'Last update ' + now + " " + first_name + " " + name)
 
 
 class HeaderEpitechShowCommandLine(sublime_plugin.WindowCommand):
